@@ -11,7 +11,7 @@ class AddAlbum extends Component {
         errors: {}
     };
 
-    onSubmit = (e) => {
+    onSubmit = async (e) => {
         e.preventDefault();
         const {title, artist, year, tracks} = this.state;
 
@@ -42,7 +42,7 @@ class AddAlbum extends Component {
             tracks: this.state.tracks
         };
 
-        axios.post('https://musicapi2018-2019.herokuapp.com/api/albums', newAlbum)
+       await axios.post('https://musicapi2018-2019.herokuapp.com/api/albums', newAlbum)
             .then(res => {
                 console.log(newAlbum);
                 console.log(res);
@@ -67,10 +67,9 @@ class AddAlbum extends Component {
         const {title, artist, year, tracks, errors} = this.state;
 
         return (
-
             <div className="card mb-3">
                 <div className="card-header">
-                    Add Album
+                    <h3 style={{ color: 'red', textAlign: 'center'}}>Add Album</h3>
                 </div>
                 <div className="card-header">
                     <form onSubmit={this.onSubmit.bind(this)}>
