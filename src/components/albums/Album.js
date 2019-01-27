@@ -13,25 +13,18 @@ class Album extends Component {
         this.props.refreshPage();
     };
 
-     sendData = async (_id) => {
-         const res =  await axios.get(`https://musicapi2018-2019.herokuapp.com/api/albums/${_id}`);
-         this.setState({albums: res.data.items});
-     };
-
     render() {
         const {_id, title, artist, year, tracks} = this.props.album;
         const {showAlbumInfo} = this.state;
 
         return (
             <div className="card card-body mb-3">
-                <h4>{title}
-                    <i onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})}
-                       className="fas fa-angle-down" style={{cursor: 'pointer', color: 'black', marginLeft: '10px'}}
-                    />
+                <h4 onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})} style={{cursor: 'pointer'}}>{title}
+
                     <i onClick={() => this.onDeleteClick(_id)}
-                       className="fas fa-trash-alt" style={{cursor: 'pointer', float: 'right', color: 'red'}}
+                       className="fas fa-trash-alt" style={{cursor: 'pointer', float: 'right', color: '#DC3545'}}
                     />
-                    <Link to="/album/update" senddate = {this.sendData(_id)}> <i className="fas fa-pen" style={{cursor: 'pointer', float: 'right', color: 'orange', marginRight: '20px'}}/> </Link>
+                    <Link to={`/album/${_id}`}> <i className="fas fa-pen" style={{cursor: 'pointer', float: 'right', color: 'orange', marginRight: '20px'}}/> </Link>
                 </h4>
                 {showAlbumInfo ? (<ul className="list-group">
                     <li className="list-group-item">Artist: {artist}</li>

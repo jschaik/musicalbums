@@ -22,9 +22,9 @@ class Albums extends Component {
         const albums = this.state.albums;
         return (
             <React.Fragment>
-                <h1 className="display-4 mb-2">
-                    <span className="text-danger">Albums</span>
-                </h1>
+                <h2 className="display-4 mb-2 albumTitle" style={{textAlign: 'center'}}>
+                    <span style={{color: '#DC3545'}}>Music albums</span>
+                </h2>
                 {albums.map(album => (
                     <Album key={album._id} album={album} refreshPage = {this.refreshPage}/>
                 ))}

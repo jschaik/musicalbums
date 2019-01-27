@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 class AddAlbum extends Component {
     state = {
@@ -68,8 +69,8 @@ class AddAlbum extends Component {
 
         return (
             <div className="card mb-3">
-                <div className="card-header">
-                    <h3 style={{ color: 'red', textAlign: 'center'}}>Add Album</h3>
+                <div className="card-header" style={{backgroundColor: '#DCDCDC'}}>
+                    <h3 style={{ color: '#696969', textAlign: 'center'}}>Add Album</h3>
                 </div>
                 <div className="card-header">
                     <form onSubmit={this.onSubmit.bind(this)}>
@@ -77,7 +78,8 @@ class AddAlbum extends Component {
                         <TextInputGroup label="Artist" name="artist" placeholder="Enter artist" value={artist} onChange={this.onChange} error={errors.artist}/>
                         <TextInputGroup label="Year" name="year" placeholder="Enter year" value={year} onChange={this.onChange} error={errors.year}/>
                         <TextInputGroup label="Tracks" name="tracks" placeholder="Enter tracks" value={tracks} onChange={this.onChange} error={errors.tracks}/>
-                        <input type="submit" value="Add Album" className="btn btn-light btn-block"/>
+                        <input style={{float: 'right'}} type="submit" value="Add Album" className="btn btn-success"/>
+                        <Link to={`/`}><button style={{float: 'right', marginRight: '10px'}} type="button" className="btn btn-danger">Cancel</button></Link>
                     </form>
                 </div>
             </div>
