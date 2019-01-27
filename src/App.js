@@ -22,7 +22,7 @@ class App extends Component {
                            <Switch>
                                <Route exact path="/" component={Albums}/>
                                <Route exact path="/album/add" component={AddAlbum}/>
-                               <Route exact path="/album/update" component={UpdateAlbum}/>
+                               <Route exact path="/album/:_id" component={UpdateAlbum}/>
                                <Route component={NotFound}/>
                            </Switch>
                         </div>
