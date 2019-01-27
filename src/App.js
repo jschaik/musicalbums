@@ -4,6 +4,7 @@ import Header from './components/layout/Header';
 import NotFound from './components/pages/NotFound';
 import Albums from './components/albums/Albums';
 import AddAlbum from './components/albums/addAlbum';
+import UpdateAlbum from './components/albums/updateAlbum';
 
 import {Provider} from './context';
 
@@ -21,8 +22,8 @@ class App extends Component {
                            <Switch>
                                <Route exact path="/" component={Albums}/>
                                <Route exact path="/album/add" component={AddAlbum}/>
+                               <Route exact path="/album/update" component={UpdateAlbum}/>
                                <Route component={NotFound}/>
-
                            </Switch>
                         </div>
                     </div>
