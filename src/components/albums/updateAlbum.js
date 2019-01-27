@@ -11,26 +11,32 @@ class UpdateAlbum extends Component {
 
     async componentDidMount() {
         const { match: { params } } = this.props;
-
         const res = await axios.get(`https://musicapi2018-2019.herokuapp.com/api/albums/${params._id}`);
         this.setState({albums: res.data});
-
-        console.log(res);
     }
 
     onUpdate = async (e) => {
+
         e.preventDefault();
 
+        const uploadAlbum = {
+            title: this.state.title,
+            artist: this.state.artist,
+            year: this.state.year,
+            tracks: this.state.tracks
+        };
+
         const { match: { params } } = this.props;
-        await axios.put(`https://musicapi2018-2019.herokuapp.com/api/albums/${params._id}`)
+        await axios.patch(`https://musicapi2018-2019.herokuapp.com/api/albums/${params._id}`, uploadAlbum)
             .then(res => {
-                console.log(res);
-                console.log(res.data);
             });
 
         //Clear form after submit
         this.setState({
-           o
+            title: '',
+            artist: '',
+            year: '',
+            tracks: ''
         });
 
         this.props.history.push('/');
@@ -39,8 +45,8 @@ class UpdateAlbum extends Component {
     onChange = (e) => this.setState({[e.target.name]: e.target.value});
 
     render() {
-        const {title, artist, year, tracks} = this.state;
         const albums = this.state.albums;
+        const {title, artist, year, tracks} = this.state;
 
         return (
             <div className="card mb-3">

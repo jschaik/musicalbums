@@ -19,12 +19,13 @@ class Album extends Component {
 
         return (
             <div className="card card-body mb-3">
-                <h4 onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})} style={{cursor: 'pointer'}}>{title}
-
+                <h4>{title}
                     <i onClick={() => this.onDeleteClick(_id)}
                        className="fas fa-trash-alt" style={{cursor: 'pointer', float: 'right', color: '#DC3545'}}
                     />
                     <Link to={`/album/${_id}`}> <i className="fas fa-pen" style={{cursor: 'pointer', float: 'right', color: 'orange', marginRight: '20px'}}/> </Link>
+                    <i onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})} className="far fa-eye" style={{cursor: 'pointer', float: 'right', color: 'green', marginRight: '20px'}}/>
+
                 </h4>
                 {showAlbumInfo ? (<ul className="list-group">
                     <li className="list-group-item">Artist: {artist}</li>
