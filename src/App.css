@@ -1,8 +1,44 @@
 body {
-    font-family: Lucida, sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fafbff96;
 }
 
 .albumTitle{
     margin-top: 30px!important;
     margin-bottom: 30px!important;
+    font-weight: bold;
+}
+.card-albums {
+    -webkit-box-shadow: 4px 5px 11px -4px rgba(184,184,184,1);
+    -moz-box-shadow: 4px 5px 11px -4px rgba(184,184,184,1);
+    box-shadow: 4px 5px 11px -4px rgba(184,184,184,1);
+    border: 0!important;
+    border-radius: 1.25rem!important;
+}
+
+.fa-pen:hover {
+    color: orange!important;
+}
+.fa-trash-alt:hover {
+    color: #e85656!important;
+}
+
+.fa-eye:hover {
+    color: #25b99a!important;
+}
+
+.fa-eye {
+    color: #aaaaaa87!important;
+}
+
+.fa-trash-alt {
+    color: #aaaaaa87!important;
+}
+
+.fa-pen {
+    color: #aaaaaa87!important;
+}
+.album-list {
+    border-radius: 1.25rem!important;
+    margin-top:10px;
 }

@@ -18,20 +18,22 @@ class Album extends Component {
         const {showAlbumInfo} = this.state;
 
         return (
-            <div className="card card-body mb-3">
-                <h4>{title}
+            <div className="card card-albums card-body mb-3">
+                <h4 style={{fontWeight: 'bold'}}>{title}
                     <i onClick={() => this.onDeleteClick(_id)}
-                       className="fas fa-trash-alt" style={{cursor: 'pointer', float: 'right', color: '#DC3545'}}
+                       className="fas fa-trash-alt" style={{cursor: 'pointer', float: 'right'}}
                     />
-                    <Link to={`/album/${_id}`}> <i className="fas fa-pen" style={{cursor: 'pointer', float: 'right', color: 'orange', marginRight: '20px'}}/> </Link>
-                    <i onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})} className="far fa-eye" style={{cursor: 'pointer', float: 'right', color: 'green', marginRight: '20px'}}/>
+                    <Link to={`/album/${_id}`}> <i className="fas fa-pen" style={{cursor: 'pointer', float: 'right', marginRight: '20px'}}/> </Link>
+                    <i onClick={() => this.setState({showAlbumInfo: !this.state.showAlbumInfo})} className="far fa-eye" style={{cursor: 'pointer', float: 'right', marginRight: '20px'}}/>
 
                 </h4>
-                {showAlbumInfo ? (<ul className="list-group">
-                    <li className="list-group-item">Artist: {artist}</li>
-                    <li className="list-group-item">Year: {year}</li>
-                    <li className="list-group-item">Tracks: {tracks}</li>
-                </ul>) : null}
+                {showAlbumInfo ? (
+                    <ul className="list-group">
+                    <li className="list-group-item album-list">Artist: {artist}</li>
+                    <li className="list-group-item album-list">Year: {year}</li>
+                    <li className="list-group-item album-list">Tracks: {tracks}</li>
+                </ul>
+                ) : null}
             </div>
         )
     }
