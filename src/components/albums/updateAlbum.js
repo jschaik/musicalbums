@@ -27,7 +27,7 @@ class UpdateAlbum extends Component {
         };
 
         const { match: { params } } = this.props;
-        await axios.patch(`https://musicapi2018-2019.herokuapp.com/api/albums/${params._id}`, uploadAlbum)
+        await axios.put(`https://musicapi2018-2019.herokuapp.com/api/albums/${params._id}`, uploadAlbum)
             .then(res => {
             });
 
